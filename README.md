@@ -56,7 +56,7 @@ Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
 
 #### Source code folder
 
-   - **Purpose:** The folder includes a training function + class definitions such as convLSTM+U-Net and DiceLoss. 
+   - **Purpose:** The folder includes a training function + class definitions such as U-Net and DiceLoss + postprocessing (keep_largest_regions.py) not currently used. 
 
 #### Plot code folder
 
