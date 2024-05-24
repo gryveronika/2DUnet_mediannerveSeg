@@ -1,4 +1,4 @@
-### 2D U-NET: How to run the code
+### 2D U-Net: How to run the code
 This Github repository does not provide data necessary to train the segmentation, due to GDPR.
 Therefore, the folders where to save results, are empty. 
 Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
