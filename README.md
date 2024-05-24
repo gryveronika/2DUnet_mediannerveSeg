@@ -52,7 +52,7 @@ Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
 #### Config
 
    - **File:** `config.py`
-   - **Purpose:** This file includes definitions of number of classes, number of unet-levels etc. This files is usually not runned, but imported in other files.
+   - **Purpose:** This file includes definitions of number of classes, number of unet-levels etc. This file is usually not runned, but imported in other files.
 
 #### Source code folder
 
