@@ -33,7 +33,7 @@ Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
 #### 4. Calculating Metrics
 
    - **File:** `get_metrics.py`
-   - **Purpose:** This script calculates accuracy, precision, recall, F1 score, and Intersection over Union (IoU) for all classes seperately.
+   - **Purpose:** This script calculates accuracy, precision, recall, F1 score/Dice, and Intersection over Union (IoU) for all classes seperately.
    - **Command:** Execute the following command:
      ```bash
      python get_metrics.py
