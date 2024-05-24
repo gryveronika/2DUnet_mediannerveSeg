@@ -45,5 +45,5 @@ class_weights = compute_class_weights(dataset_train, num_classes=9)
 print("Class weights:", class_weights)
 
 # Save the computed class weights to a file
-filepath = "../class_weights_to_adjust_for_imbalance/class_weights2.pt"
+filepath = "../class_weights/class_weights2.pt"
 torch.save(class_weights, filepath)

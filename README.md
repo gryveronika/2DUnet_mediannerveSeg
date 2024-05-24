@@ -1,2 +1,63 @@
-# 2DUnet_mediannerveSeg
-Code implementation for 2D segmentation of median nerve.
+### How to run the code
+This Github repository does not provide data necessary to train the segmentation, due to GDPR.
+Therefore, the folders where to save results, are empty. 
+Fill out the filepaths to your data, YOUR_DATA_PATH, and in the config file, and also in the files in the folder plot_code
+
+
+#### 1. Preprocess data, create datasets and dataloaders
+
+   - **File:** `dataprocessing.py`
+   - **Purpose:** This script preprocesses the data, and make dataloaders. 
+   - **Command:** Execute the following command:
+     ```bash
+     python dataprocessing.py
+
+#### 2. Training the Model
+
+   - **File:** `main.py`
+   - **Purpose:** This script is responsible for training the model.
+   - **Command:** Execute the following command:
+     ```bash
+     python main.py
+     ```
+
+#### 3. Evaluating the Model
+
+   - **File:** `evaluate.py`
+   - **Purpose:** This script saves prediction data for the test set.
+   - **Command:** Run the following command:
+     ```bash
+     python evaluate.py
+     ```
+
+#### 4. Calculating Metrics
+
+   - **File:** `get_metrics.py`
+   - **Purpose:** This script calculates accuracy, precision, recall, F1 score, and Intersection over Union (IoU) for all classes seperately.
+   - **Command:** Execute the following command:
+     ```bash
+     python get_metrics.py
+     ```
+
+#### 5. Plotting segmentation
+
+   - **File:** `plot_segmentation.py`
+   - **Purpose:** This script generates plots based on the predictions saved in `evaluate.py`.
+   - **Command:** Run the following command:
+     ```bash
+     python plot_result.py
+     ```
+### Config and folders 
+
+#### Config
+
+   - **File:** `config.py`
+   - **Purpose:** This file includes definitions of number of classes, number of unet-levels etc. This files is usually not runned, but imported in other files.
+
+#### Source code folder
+
+   - **Purpose:** The folder includes a training function + class definitions such as U-Net and DiceLoss + postprocessing (keep_largest_regions.py) not currently used. 
+
+#### Plot code folder
+
+   - **Purpose:** This folder includes some of the plotting scripts used to generate the plots in the report.

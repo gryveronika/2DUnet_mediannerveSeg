@@ -36,7 +36,7 @@ if __name__ == '__main__':
     num_weights = count_parameters(unet)
     print(f"Number of trainable parameters in the UNet model: {num_weights}")
 
-    #class_weights = torch.load("class_weights_to_adjust_for_imbalance/class_weights.pt")
+    #class_weights = torch.load("class_weights/class_weights.pt")
 
     manual_seed(111)
     unet.apply(weights_init)
