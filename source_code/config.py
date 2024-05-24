@@ -15,7 +15,7 @@ root_dir = "/Users/YOUR_DATA_PATH"
 # Model and Training Configuration
 multiclass = True
 Unet_levels = 5
-epochs = 5
+epochs = 150
 batchsize = 16
 num_classes = 9  # Number of classes for segmentation
 current_class=1  # The class to segment (only for binary segmentation)
