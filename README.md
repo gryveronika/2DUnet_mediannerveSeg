@@ -1,7 +1,7 @@
 ### How to run the code
 This Github repository does not provide data necessary to train the segmentation, due to GDPR.
 Therefore, the folders where to save results, are empty. 
-Fill out the filepaths to your data, YOUR_DATA_PATH, and in the config file, and also in the files in the folder plot_code
+Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
 
 
 #### 1. Preprocess data, create datasets and dataloaders
