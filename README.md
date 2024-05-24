@@ -52,11 +52,11 @@ Fill out the filepaths to your data, YOUR_DATA_PATH in the config file.
 #### Config
 
    - **File:** `config.py`
-   - **Purpose:** This file includes definitions of number of classes, number of unet-levels etc. This file is usually not runned, but imported in other files.
+   - **Purpose:** This file includes definitions of number of classes, number of unet-levels etc. This file is usually not ran, but imported in other files.
 
 #### Source code folder
 
-   - **Purpose:** The folder includes a training function + class definitions such as U-Net and DiceLoss + postprocessing (keep_largest_regions.py) not currently used. 
+   - **Purpose:** The folder includes a training function + class definitions such as convLSTM+U-Net and DiceLoss. 
 
 #### Plot code folder
 
