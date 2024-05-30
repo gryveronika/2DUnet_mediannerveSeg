@@ -5,9 +5,11 @@ from source_code.config import Unet_levels, num_classes
 #from config import Unet_levels, num_classes
 
 # Define U-Net architecture based on Unet_levels configuration
+
 class Unet(nn.Module):
-    def __init__(self, in_channels=1, out_channels=2, init_features=32):
+    def __init__(self, in_channels=1, out_channels=2, init_features=32, unet_levels=5):
         super(Unet, self).__init__()
+        self.unet_levels = unet_levels
         features = init_features
 
         # Define encoder and decoder blocks
@@ -20,13 +22,12 @@ class Unet(nn.Module):
         self.encoder4 = Unet._block(features * 4, features * 8, name="enc4")
         self.pool4 = nn.MaxPool2d(kernel_size=2, stride=2)
 
-        if Unet_levels == 6:
+        if unet_levels == 6:
             self.encoder5 = Unet._block(features * 8, features * 16, name="enc5")
             self.pool5 = nn.MaxPool2d(kernel_size=2, stride=2)
             self.bottleneck = Unet._block(features * 16, features * 32, name="bottleneck")
             self.upconv5 = nn.ConvTranspose2d(features * 32, features * 16, kernel_size=2, stride=2)
             self.decoder5 = Unet._block(features * 32, features * 16, name="dec5")
-
         else:
             self.bottleneck = Unet._block(features * 8, features * 16, name="bottleneck")
 
@@ -50,16 +51,17 @@ class Unet(nn.Module):
         encoder4 = self.encoder4(pool3)
         pool4 = self.pool4(encoder4)
 
-        if Unet_levels == 6:
+        if self.unet_levels == 6:
             encoder5 = self.encoder5(pool4)
             pool5 = self.pool5(encoder5)
             bottleneck = self.bottleneck(pool5)
             upconv5 = self.upconv5(bottleneck)
             decoder5 = self.decoder5(cat([upconv5, encoder5], 1))
+            upconv4 = self.upconv4(decoder5)
         else:
             bottleneck = self.bottleneck(pool4)
+            upconv4 = self.upconv4(bottleneck)
 
-        upconv4 = self.upconv4(bottleneck)
         decoder4 = self.decoder4(cat([upconv4, encoder4], 1))
         upconv3 = self.upconv3(decoder4)
         decoder3 = self.decoder3(cat([upconv3, encoder3], 1))
@@ -87,5 +89,6 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 # Instantiate and print the number of parameters in the U-Net model
-unet = Unet(in_channels=1, out_channels=num_classes, init_features=32)
+num_classes = 2
+unet = Unet(in_channels=1, out_channels=num_classes, init_features=32, unet_levels=Unet_levels)
 print(count_parameters(unet))

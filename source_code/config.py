@@ -14,7 +14,7 @@ root_dir = "/Users/YOUR_DATA_PATH"
 
 # Model and Training Configuration
 multiclass = True
-Unet_levels = 5
+Unet_levels = 6
 epochs = 150
 batchsize = 16
 num_classes = 9  # Number of classes for segmentation
